@@ -1,0 +1,20 @@
+version: "3.4"
+
+services:
+  mysql:
+    image: mysql
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    environment:
+      - "MYSQL_DATABASE=homestead"
+      - "MYSQL_USER=homestead"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+    ports:
+        - "33061:3306"
+    networks:
+      - netdev
+
+networks:
+  netdev:    
+    name: netdev
